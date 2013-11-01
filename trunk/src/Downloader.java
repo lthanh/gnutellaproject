@@ -62,10 +62,9 @@ public class Downloader extends Thread {
                     Searcher.updateFileTransferStatus(connection.getIPAddress(), myname, 100);
                     Searcher.updateConnectionStatus(connection.getIPAddress(), myname, "Complete.");
 
-//                    out.flush();
-//                    out.close();
-//                    fos.close();
-//                    s.close();
+                    out.flush();
+                    out.close();
+                    s.close();
                 } else {
                     Searcher.updateConnectionStatus(connection.getIPAddress(), myname, "Unable to create new file in shared directory.");
                 }
