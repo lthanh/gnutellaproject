@@ -47,9 +47,9 @@ public class Downloader extends Thread {
             if (oktodownload) {
                 File towrite = new File((SharedDirectory.getOurSavePath().getPath() + File.separatorChar + myname));
                 if (towrite.createNewFile()) {
-                    FileOutputStream fos = new FileOutputStream(towrite);
-                    // DataOutputStream out = new DataOutputStream(new FileOutputStream(towrite));
-                    DataOutputStream out = new DataOutputStream(fos);
+                    //FileOutputStream fos = new FileOutputStream(towrite);
+                     DataOutputStream out = new DataOutputStream(new FileOutputStream(towrite));
+                    //DataOutputStream out = new DataOutputStream(fos);
                     Searcher.updateConnectionStatus(connection.getIPAddress(), myname, "Downloading...");
                     for (int i = 0; i < filesize; i++) {
                         out.write((byte) connection.getByteReader().read());
