@@ -43,7 +43,7 @@ public class DownloadServer extends Thread
 					    {
 						myconnection.getByteWriter().write((byte)in.read());
 					    }
-                                        
+                                        // do not close connection at server side becasue error SocketInputStream at client side when download.
 					//myconnection.getByteWriter().close();
 				    }
 				catch (Exception e)
