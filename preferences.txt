@@ -1,0 +1,5 @@
+Max-Live: 5
+Max-Cache: 100
+Auto-Connect: true
+Shared-Directory: /opt
+Download-Directory: /home/ccrick
