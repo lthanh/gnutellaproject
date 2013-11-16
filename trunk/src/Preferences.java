@@ -25,7 +25,8 @@ public class Preferences {
                     StringTokenizer t = new StringTokenizer(address, ":");
                     Host h = new Host(t.nextToken(), Integer.parseInt(t.nextToken()));
                     HostCache.addHost(h);
-                    System.out.println(h);
+                    
+                    System.out.println(h.getPort() +"========"+ h.getName());
                     continue;
                 } else if (line.startsWith("Max-Live: ")) {
                     MAX_LIVE = Integer.parseInt(line.substring(10));
