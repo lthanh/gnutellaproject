@@ -17,7 +17,13 @@ public class Mine {
             Socket s = new Socket("java.sun.com", 80);
             System.out.println("Port address: " + s.getLocalPort());
             ipString = s.getLocalAddress().getHostAddress();
+            
+            System.out.println("+++++++++++++++++++++");
             System.out.println("Local address: " + ipString);
+
+            System.out.println("Inet address: " + s.getInetAddress().getHostAddress());
+            System.out.println("+++++++++++++++++++++");
+            
             byte[] ipbytes = s.getLocalAddress().getAddress();
             ipObject = new IPAddress(ipbytes[0], ipbytes[1], ipbytes[2], ipbytes[3], port);
             for (int i = 0; i < 16; i++) {
