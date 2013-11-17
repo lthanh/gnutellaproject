@@ -4,7 +4,8 @@ import java.util.*;
 
 public class Preferences {
 
-    public static String FILE_NAME = "C:\\Users\\admin\\Documents\\NetBeansProjects\\Gnutella_Project\\src\\preferences.txt";
+    //public static String FILE_NAME = "C:\\Users\\admin\\Desktop\\Gnutella_Project SVN\\src\\preferences.txt";
+    public static String FILE_NAME = "./src/preferences.txt";
     public static int MAX_LIVE = 5;
     public static int MAX_CACHE = 100;
     public static boolean AUTO_CONNECT = true;
@@ -25,9 +26,9 @@ public class Preferences {
                     StringTokenizer t = new StringTokenizer(address, ":");
                     Host h = new Host(t.nextToken(), Integer.parseInt(t.nextToken()));
                     HostCache.addHost(h);
-                    
-                    System.out.println(h.getPort() +"========"+ h.getName());
-                    
+
+                    //   System.out.println(h.getPort() +"========"+ h.getName());
+
                     continue;
                 } else if (line.startsWith("Max-Live: ")) {
                     MAX_LIVE = Integer.parseInt(line.substring(10));
@@ -68,7 +69,7 @@ public class Preferences {
 
     public static void writeToFile() {
         try {
-           PrintWriter fileOut = new PrintWriter(new FileWriter(FILE_NAME));
+            PrintWriter fileOut = new PrintWriter(new FileWriter(FILE_NAME));
             for (int i = 0; i < HostCache.getCount(); i++) {
                 fileOut.println("Host: " + HostCache.hosts[i].getName() + ":" + HostCache.hosts[i].getPort());
             }

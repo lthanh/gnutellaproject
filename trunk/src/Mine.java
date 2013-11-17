@@ -19,8 +19,9 @@ public class Mine {
             ipString = s.getLocalAddress().getHostAddress();
             
             System.out.println("+++++++++++++++++++++");
-            System.out.println("Local address: " + ipString);
-
+            System.out.println("IpString address: " + ipString);
+            System.out.println("Local address: " + s.getLocalAddress());
+            System.out.println("Inet PORT: " + s.getPort());
             System.out.println("Inet address: " + s.getInetAddress().getHostAddress());
             System.out.println("+++++++++++++++++++++");
             
