@@ -13,6 +13,8 @@ public class Preferences {
     public static int CONNECTOR_TIME = 10000;
     public static String SHAREPATH = "C:\\Users\\admin\\Desktop\\ShareFile";
     public static String SAVEPATH = "C:\\Users\\admin\\Desktop\\DownloadFile";
+   // public static String SHAREPATH = "C:\\ShareFile";
+   // public static String SAVEPATH = "C:\\DownloadFile";
 
     public static void readFromFile() {
         try {

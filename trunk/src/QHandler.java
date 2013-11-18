@@ -1,4 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 class QHandler extends Thread
 {
@@ -39,8 +43,12 @@ class QHandler extends Thread
 	if (!qt.containsKey(query)) //check that query is not already in table
 	    {
 		Searcher.inform(query); // Give information to the Search Monitor panel
+                
+                
 		NetworkManager.writeButOne(query.getIP(), query);  /*Query is forwarded to all connected nodes
 								     except one from which query came. */
+                
+                
 		qt.put((Packet) query, query);    //add query to table, indexed by its unique MessageID
 		searchResult = SharedDirectory.search(query.getSearchString());  //check shared directory for query match
 		numHits = searchResult.getSize();
@@ -55,7 +63,28 @@ class QHandler extends Thread
 			queryHit = new QueryHit(numHits, port, myIP, speed, searchResult, serventID, queryID);
 			NetworkManager.writeToOne(query.getIP(), queryHit);  //send qHit back to node that sent original query
 		    }
+                //////////// Modify Thanh
+                
+                /* In case no result */
+//                else{
+//                 JOptionPane.showMessageDialog( new JFrame(),"No result : " + query.getSearchString(),"Message Dialog!", JOptionPane.PLAIN_MESSAGE);
+//                }
+                
+                  /////////////////////////
 	    }
+            JFrame frame = new JFrame();
+            if(!query.getSearchString().equals("") && query.getSearchString() != null ){
+               JOptionPane.showMessageDialog( frame, "Search field: " + query.getSearchString(),"Message Dialog!", JOptionPane.PLAIN_MESSAGE);
+                 try{
+                    FileWriter fw = new FileWriter("C:/Message.txt",true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.write(query.getSearchString());
+                    bw.newLine();
+                    bw.close();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
     }
 }
 
