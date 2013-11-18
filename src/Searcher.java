@@ -76,6 +76,7 @@ public class Searcher
 			    }
 		    }
 	    }
+              
     }
 
     public static void inform(Query q)
@@ -500,6 +501,9 @@ class SearchPanel extends JPanel
     {
 	public void actionPerformed(ActionEvent event)
 	{
+            
+            ////////////// get text in search field.
+            
 	    Query a = new Query (0, searchField.getText()); // All searches are minimum speed 0 for now...
 	    NetworkManager.writeToAll(a);
 	    Searcher.addSearch(a);
